@@ -1,21 +1,15 @@
 package Piece;
 
 import Board.Board;
-
-
-import Board.Tile.Tile;
 import Move.Move;
-import Move.RegularMove;
-import Move.AttackingMove;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-
-public class Knight extends Piece{
-    private final static int[][] POSSIBLE_MOVES = {{-2,-1},{-2,1},{-1,-2},{-1,2},{2,1},{2,-1},{1,2},{1,-2}};
-    public Knight(int xPiece, int yPiece, Player player) {
+public class King extends Piece {
+    private final static int[][] POSSIBLE_MOVES = {{-1, -1}, {-1, 0},{-1,1},{0,-1},{0,1},{1,-1},{1,0},{1,1}};
+    public King(int xPiece, int yPiece, Player player) {
         super(xPiece, yPiece, player);
     }
 
