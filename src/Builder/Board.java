@@ -1,16 +1,64 @@
 package Builder;
 
+import Move.Move;
 import Piece.*;
 import Tiles.Tile;
 import javafx.util.Pair;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class Board {
     private final Tile[][] gameBoard;
+    private final List<Piece> whitePieces;
+    private final List<Piece> blackPieces;
+
     public Board(Builder builder) {
         this.gameBoard = createGameBoard(builder);
+        this.whitePieces = calculateActivePieces(this.gameBoard,Player.WHITE);
+        this.blackPieces = calculateActivePieces(this.gameBoard,Player.BLACK);
+
+        List<Move> whiteLegalMoves = calculateLegalMoves(this.whitePieces);
+        List<Move> blackLegalMoves = calculateLegalMoves(this.blackPieces);
+    }
+
+    @Override
+    public String toString(){
+        StringBuilder builder = new StringBuilder();
+        for(int i =7; i>=0;i--){
+            for(int j = 0; j<=7; j++){
+                String tileText = this.gameBoard[j][i].toString();
+                builder.append((String.format("%3s",tileText)));
+            }
+            builder.append("\n");
+        }
+        return builder.toString();
+    }
+
+
+
+
+    private List<Move> calculateLegalMoves(List<Piece> pieces){
+        List<Move> legalMoves = new ArrayList<>();
+        for(Piece piece: pieces){
+            legalMoves.addAll(piece.possibleMoves(this));
+        }
+        return Collections.unmodifiableList(legalMoves);
+    }
+
+    private List<Piece> calculateActivePieces (Tile[][] gameBoard, Player player){
+        List<Piece> activePieces = new ArrayList<Piece>();
+        for(int i =0; i<8;i++){
+            for(int j =0; j<8;j++){
+                if(gameBoard[i][j].containsPiece()){
+                    if(gameBoard[i][j].getPiece().getPlayer().equals(player)){
+                        activePieces.add(gameBoard[i][j].getPiece());
+                    }
+                }
+            }
+        }
+        return activePieces;
     }
 
     private Tile[][] createGameBoard(Builder builder){
@@ -24,7 +72,7 @@ public class Board {
         return tiles;
     }
 
-    public Board createStandardBoard(){
+    public static Board createStandardBoard(){
         Builder builder = new Builder();
         builder.setPiece(new Rook(0,7,Player.BLACK));
         builder.setPiece(new Knight(1,7,Player.BLACK));
@@ -51,14 +99,14 @@ public class Board {
         builder.setPiece(new Bishop(5,0,Player.WHITE));
         builder.setPiece(new Knight(6,0,Player.WHITE));
         builder.setPiece(new Rook(7,0,Player.WHITE));
-        builder.setPiece(new Pawn(0,6,Player.WHITE));
-        builder.setPiece(new Pawn(1,6,Player.WHITE));
-        builder.setPiece(new Pawn(2,6,Player.WHITE));
-        builder.setPiece(new Pawn(3,6,Player.WHITE));
-        builder.setPiece(new Pawn(4,6,Player.WHITE));
-        builder.setPiece(new Pawn(5,6,Player.WHITE));
-        builder.setPiece(new Pawn(6,6,Player.WHITE));
-        builder.setPiece(new Pawn(7,6,Player.WHITE));
+        builder.setPiece(new Pawn(0,1,Player.WHITE));
+        builder.setPiece(new Pawn(1,1,Player.WHITE));
+        builder.setPiece(new Pawn(2,1,Player.WHITE));
+        builder.setPiece(new Pawn(3,1,Player.WHITE));
+        builder.setPiece(new Pawn(4,1,Player.WHITE));
+        builder.setPiece(new Pawn(5,1,Player.WHITE));
+        builder.setPiece(new Pawn(6,1,Player.WHITE));
+        builder.setPiece(new Pawn(7,1,Player.WHITE));
 
         builder.setMoveMaker(Player.WHITE);
 
@@ -69,7 +117,7 @@ public class Board {
 
 
     public Tile getTile(int newX, int newY) {
-        return null;
+        return gameBoard[newX][newY];
     }
 
 }

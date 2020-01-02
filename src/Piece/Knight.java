@@ -26,4 +26,8 @@ public class Knight extends Piece{
         }
         return Collections.unmodifiableList(possibleMoves);
     }
+    @Override
+    public String toString(){
+        return PieceType.KNIGHT.toString();
+    }
 }

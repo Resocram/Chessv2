@@ -35,4 +35,8 @@ public class Rook extends Piece {
 
         return Collections.unmodifiableList(possibleMoves);
     }
+    @Override
+    public String toString(){
+        return PieceType.ROOK.toString();
+    }
 }

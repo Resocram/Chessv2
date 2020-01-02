@@ -23,4 +23,8 @@ public class King extends Piece {
         }
         return Collections.unmodifiableList(possibleMoves);
     }
+    @Override
+    public String toString(){
+        return PieceType.KING.toString();
+    }
 }

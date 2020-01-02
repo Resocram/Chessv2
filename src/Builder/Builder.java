@@ -4,11 +4,16 @@ import Piece.Piece;
 import Piece.Player;
 import javafx.util.Pair;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class Builder {
     private Map<Pair<Integer, Integer>, Piece> boardConfig;
     private Player nextMove;
+
+    public Builder(){
+        this.boardConfig = new HashMap<>();
+    }
 
 
     public Map<Pair<Integer, Integer>, Piece> getBoardConfig() {

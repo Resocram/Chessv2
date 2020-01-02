@@ -20,6 +20,7 @@ public abstract class Tile {
         }
     }
 
+    public abstract String toString();
     public abstract boolean containsPiece();
     public abstract Piece getPiece();
 

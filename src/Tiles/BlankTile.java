@@ -9,6 +9,11 @@ public class BlankTile extends Tile {
     }
 
     @Override
+    public String toString() {
+        return "-";
+    }
+
+    @Override
     public boolean containsPiece() {
         return false;
     }
