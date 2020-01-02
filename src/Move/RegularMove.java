@@ -1,6 +1,6 @@
 package Move;
 
-import Board.Board;
+import Builder.Board;
 import Piece.Piece;
 
 public class RegularMove extends Move {

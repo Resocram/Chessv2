@@ -1,12 +1,10 @@
 package Piece;
 
-import Board.Board;
-import Board.Tile.Tile;
+import Builder.Board;
 import Move.Move;
 import Move.RegularMove;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 

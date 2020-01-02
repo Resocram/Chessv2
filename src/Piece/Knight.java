@@ -1,12 +1,9 @@
 package Piece;
 
-import Board.Board;
+import Builder.Board;
 
 
-import Board.Tile.Tile;
 import Move.Move;
-import Move.RegularMove;
-import Move.AttackingMove;
 
 import java.util.ArrayList;
 import java.util.Collections;

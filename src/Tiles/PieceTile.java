@@ -1,4 +1,4 @@
-package Board.Tile;
+package Tiles;
 
 import Piece.Piece;
 

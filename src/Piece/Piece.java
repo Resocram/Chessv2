@@ -1,7 +1,7 @@
 package Piece;
 
-import Board.Board;
-import Board.Tile.Tile;
+import Builder.Board;
+import Tiles.Tile;
 import Move.Move;
 import Move.RegularMove;
 import Move.AttackingMove;
@@ -21,6 +21,13 @@ public abstract class Piece {
         this.isFirstMove = false;
     }
 
+    public int getxPiece() {
+        return xPiece;
+    }
+
+    public int getyPiece(){
+        return yPiece;
+    }
 
     public abstract List<Move> possibleMoves(Board board);
 

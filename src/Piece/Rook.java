@@ -1,6 +1,6 @@
 package Piece;
 
-import Board.Board;
+import Builder.Board;
 import Move.Move;
 
 import java.util.ArrayList;
