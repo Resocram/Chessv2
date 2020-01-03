@@ -1,8 +1,12 @@
 package Builder;
 
+import ChessPlayer.ChessPlayer;
+import ChessPlayer.whitePlayer;
 import Move.Move;
 import Piece.*;
 import Tiles.Tile;
+import ChessPlayer.whitePlayer;
+import ChessPlayer.blackPlayer;
 import javafx.util.Pair;
 
 import java.util.ArrayList;
@@ -14,6 +18,10 @@ public class Board {
     private final List<Piece> whitePieces;
     private final List<Piece> blackPieces;
 
+    private final whitePlayer whitePlayer;
+    private final blackPlayer blackPlayer;
+    private final ChessPlayer currentPlayer;
+
     public Board(Builder builder) {
         this.gameBoard = createGameBoard(builder);
         this.whitePieces = calculateActivePieces(this.gameBoard,Player.WHITE);
@@ -21,6 +29,30 @@ public class Board {
 
         List<Move> whiteLegalMoves = calculateLegalMoves(this.whitePieces);
         List<Move> blackLegalMoves = calculateLegalMoves(this.blackPieces);
+
+        this.whitePlayer = new whitePlayer(this,whiteLegalMoves,blackLegalMoves);
+        this.blackPlayer = new blackPlayer(this,whiteLegalMoves,blackLegalMoves);
+        this.currentPlayer = builder.getNextMove().choosePlayer(this.whitePlayer,this.blackPlayer);
+
+    }
+
+    public ChessPlayer currentPlayer(){
+        return this.currentPlayer;
+    }
+    public ChessPlayer whitePlayer(){
+        return this.whitePlayer;
+    }
+
+    public ChessPlayer blackPlayer(){
+        return this.blackPlayer;
+    }
+
+    public List<Piece> getBlackPieces() {
+        return blackPieces;
+    }
+
+    public List<Piece> getWhitePieces() {
+        return whitePieces;
     }
 
     @Override

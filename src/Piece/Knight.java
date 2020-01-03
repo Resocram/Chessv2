@@ -13,7 +13,7 @@ import java.util.List;
 public class Knight extends Piece{
     private final static int[][] POSSIBLE_MOVES = {{-2,-1},{-2,1},{-1,-2},{-1,2},{2,1},{2,-1},{1,2},{1,-2}};
     public Knight(int xPiece, int yPiece, Player player) {
-        super(xPiece, yPiece, player);
+        super(PieceType.KNIGHT,xPiece, yPiece, player);
     }
 
     @Override

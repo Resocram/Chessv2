@@ -11,7 +11,7 @@ public class Bishop extends Piece {
     private final static int[][] POSSIBLE_MOVES = {{1, 1}, {1, -1}, {-1, 1}, {-1, -1}};
 
     public Bishop(int xPiece, int yPiece, Player player) {
-        super(xPiece, yPiece, player);
+        super(PieceType.BISHOP,xPiece, yPiece, player);
     }
 
     @Override

@@ -11,7 +11,7 @@ public class Queen extends Piece {
     private final static int[][] POSSIBLE_MOVES = {{1, 1}, {1, -1}, {-1, 1}, {-1, -1}, {0, 1}, {0, -1}, {-1, 0}, {1, 0}};
 
     public Queen(int xPiece, int yPiece, Player player) {
-        super(xPiece, yPiece, player);
+        super(PieceType.QUEEN,xPiece, yPiece, player);
     }
 
     @Override

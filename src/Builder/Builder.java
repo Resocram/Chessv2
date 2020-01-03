@@ -15,6 +15,9 @@ public class Builder {
         this.boardConfig = new HashMap<>();
     }
 
+    public Player getNextMove() {
+        return nextMove;
+    }
 
     public Map<Pair<Integer, Integer>, Piece> getBoardConfig() {
         return boardConfig;

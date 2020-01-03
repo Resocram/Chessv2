@@ -10,7 +10,7 @@ import java.util.List;
 public class King extends Piece {
     private final static int[][] POSSIBLE_MOVES = {{-1, -1}, {-1, 0},{-1,1},{0,-1},{0,1},{1,-1},{1,0},{1,1}};
     public King(int xPiece, int yPiece, Player player) {
-        super(xPiece, yPiece, player);
+        super(PieceType.KING,xPiece, yPiece, player);
     }
 
     @Override

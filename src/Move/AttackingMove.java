@@ -9,4 +9,9 @@ public class AttackingMove extends Move {
         super(board, pieceToMove, finalX, finalY);
         this.attackedPiece = attacked;
     }
+
+    @Override
+    public Board execute() {
+        return null;
+    }
 }

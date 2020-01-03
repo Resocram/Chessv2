@@ -10,7 +10,7 @@ import java.util.List;
 public class Rook extends Piece {
     private final static int[][] POSSIBLE_MOVES = {{0, 1}, {0, -1}, {-1, 0}, {1, 0}};
     public Rook(int xPiece, int yPiece, Player player) {
-        super(xPiece, yPiece, player);
+        super(PieceType.ROOK,xPiece, yPiece, player);
     }
 
     @Override

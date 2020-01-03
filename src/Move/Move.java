@@ -15,5 +15,22 @@ public abstract class Move {
         this.finalX = finalX;
         this.finalY = finalY;
     }
+    public abstract Board execute();
+
+    public Piece getPieceToMove() {
+        return pieceToMove;
+    }
+
+    public Board getBoard() {
+        return board;
+    }
+
+    public int getX(){
+        return finalX;
+    }
+
+    public int getY(){
+        return finalY;
+    }
 
 }
